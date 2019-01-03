@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.link{
+	padding-left: 30%;
+	padding-top: 30px;
+}
+b:hover{
+	text-decoration: underline;
+}
+</style>
+<div>
+<div class="row">
+  
+	<div class="col-sm-4">
+		<a href="<?php echo 'newblog.php?author='.$name; ?>" class="link" style="color:green;"><span class="glyphicon glyphicon-plus" ></span>&nbsp <b>CREATE NEW BLOG</b></a>		
+	</div>
+	<div class="col-sm-4">
+		<a href="stats.php?name=<?php echo $_SESSION['logged_user_name'];?>" class="link" style="color:blue;"><span class="glyphicon glyphicon-stats" ></span>&nbsp <b>VIEW STATS</b></a>		
+	</div>
+	<div class="col-sm-4">
+		<a href="deleteblog.php?name=<?php echo $_SESSION['logged_user_name'];?>" class="link" style="color:red;"><span class="glyphicon glyphicon-trash" ></span>&nbsp <b>DELETE BLOG</b></a>
+	</div>
+  
+</div>
+</div>

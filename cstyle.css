@@ -1,0 +1,67 @@
+.profile_pic{
+	height: 272px;
+	width:250px;
+	border:2px solid black;
+	border-radius: 50%;
+	background-image: url('imgs/default_img.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.box{
+	height: 250px;
+	border: 1px solid black;
+}
+#hname{
+	float:left;
+}
+.btn_upload{
+	background-color: transparent;
+	margin-top : 270px;
+	border: 0px;
+
+}
+.btn_pic_upload:hover{
+	color:red;
+}
+
+.btn_pic_upload{
+	background-color: transparent;
+	margin-top : 2px;
+	border: 0px;
+	color: blue;
+
+
+}
+
+.view_body{
+	margin-top: 40px;
+}
+
+.blog_list_profile{
+	margin-top: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+
+.blog_box{
+	height: 100px;
+	width: 60%;
+	border: 1px solid black;
+	background-color: lightgray;
+	padding-top: -3px;
+	padding-left: 10px;
+	overflow: hidden;
+	margin-bottom: 10px; 
+	border-radius: 10px;
+}
+.blog_box:hover{
+	box-shadow: 0 3px 3px 0;
+}
+
+footer{
+	margin-top: 50px;
+	height: 50px;
+	width: 100%;
+	background-color: black;
+	color: white;
+}

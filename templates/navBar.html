@@ -1,0 +1,40 @@
+<style type="text/css">
+.ulc{
+	list-style-type:none;
+	margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color: #333;
+}
+.ulc li a{
+	float:left;
+	display:block;
+	color:white;
+	text-align: center;
+	height:50px;
+	padding-top:14px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: #333;
+	text-decoration:none;
+	
+}
+
+.typ a:hover{
+	color:white;
+	text-decoration:none;
+	background-color:#707070;	
+}
+	
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<nav class="typ">
+<ul class="ulc">
+  <li> <a href="home.php?user=<?php echo $_SESSION['logged_user_name'];?>"> Home </a> </li>
+  <li> <a href="fresh.php?user=<?php echo $_SESSION['logged_user_name'];?>"> Fresh </a> </li>
+  <li> <a href="myblogs.php?user=<?php echo $_SESSION['logged_user_name'];?>"> My Blogs </a> </li>  
+  <li style="float:right;" title="logout"  > <a href="logout.php" ><span class="glyphicon glyphicon-off"> </span> </a></li>
+  <li style="float:right;"  title="profile"><a href="<?php echo $_SESSION['logged_profile_link']; ?>"> <span class="glyphicon glyphicon-user"> </span></a></li>
+</ul>
+</nav>
