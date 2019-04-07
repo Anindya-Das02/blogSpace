@@ -89,7 +89,7 @@ if (isset($_POST['upload'])) {
 				<form method="POST">
 				  <label for="blog_title"><h2>Enter Blog title:</h2></label>
 		          <input type="text" class="form-control" name="blog_title" placeholder="Enter title here..." id="btitle" pattern=".{4,}" value="<?php if(isset($_POST['preview'])){echo $_POST['blog_title'];} ?>" required/>
-		          <h2>Wite body:</h2>
+		          <h2>Write body:</h2>
 		          <textarea id="bbody" name="blog_body" rows="15" cols="103" style="margin-top: 10px; overflow: scroll;resize: none;" placeholder="write something here..."><?php if (isset($_POST['preview'])) {
 		          	echo $_POST['blog_body'];
 		          } ?></textarea>

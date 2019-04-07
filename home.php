@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!$_SESSION['logged_user_name']) {
+	header("Location: index.php");
+}
 $_SESSION['parent'] = 'home';
 
 $conn = mysqli_connect("localhost","root","","blogspacedb");
@@ -9,7 +12,8 @@ if (mysqli_connect_error()) {
 
 $user_name = $_SESSION['logged_user_name'];
 
-$sql = "select bloglist.* from bloglist inner join followerlist on bloglist.author = followerlist.follows where followerlist.follower=?  union SELECT * from bloglist";
+// $sql = "select bloglist.* from bloglist inner join followerlist on bloglist.author = followerlist.follows where followerlist.follower=?  union SELECT * from bloglist";
+$sql = "SELECT DISTINCT uniquelist.author, uniquelist.title,uniquelist.body, uniquelist.url, uniquelist.date, uniquelist.title FROM `uniquelist` order by case when follower=? then 1 else 2 end, date desc";
 $stm = $conn->prepare($sql);
 $stm->bind_param("s",$user_name);
 $stm->execute();

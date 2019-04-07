@@ -15,10 +15,6 @@ $stm = $conn->prepare($sql);
 $stm->bind_param("s",$_SESSION['logged_user_name']);
 $stm->execute();
 $result = $stm->get_result();
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +26,19 @@ $result = $stm->get_result();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="cstyle.css">
+    <style type="text/css">
+    .report-box{
+    	background-color: gray;
+    	color: white;
+    	padding-top: 15px;
+    	padding-left: 10px;
+    	height: 55px;
+    	margin-top: 5px;
+    	border-radius: 5px;
+    	font-size: 20px;
+     }
+    	
+    </style>
 </head>
 <body>
 	<?php include('templates/navBar.html'); ?>
@@ -69,20 +78,25 @@ $result = $stm->get_result();
 			
 		}
 		echo "</table>";
-
-
-
-
-
-
-		?>
-
-
-
-		
+		$auth_name = $_SESSION['logged_user_name'];
+		$rep_sql = "select * from report where author=?";
+		$rep_stm = $conn->prepare($rep_sql);
+		$rep_stm->bind_param("s",$auth_name);
+		$rep_stm->execute();
+		$rep_result = $rep_stm->get_result();
+		$rep_row = mysqli_num_rows($rep_result);
+		if($rep_row>0){
+			echo "<hr>";
+			echo "<center><span style='color:red;'><h2>NOTICE</h2></span></center>";
+			while($reprow = $rep_result->fetch_assoc()){ ?>
+				<div class="report-box">
+					Your blog titled  '<?php echo "<a href='".$reprow['url']."' style='color:yellow;'>".$reprow['title']."</a>"; ?>' has been reported for ' <span style="color:orange;"><?php echo $reprow['reason']; ?></span> '.
+				</div>
+		<?php		
+			}
+		}
+		?>		
 	</div>
-
-
-
+	<div style="height:50px;"></div>
 </body>
 </html>

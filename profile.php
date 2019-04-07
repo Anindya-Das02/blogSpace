@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+if($_SESSION['logged_user_name'] == null){
+    header("Location: index.php");
+}
 $_SESSION['parent'] = 'profile';
 
 $conn = mysqli_connect("localhost","root","","blogspacedb");
@@ -131,7 +134,7 @@ if ($rowcount == 0) {
                 ?>                       
         </div> 
         <h2>Blogs:</h2>
-
+        <hr>
         <div class="row" >
             <?php
 
@@ -144,7 +147,7 @@ if ($rowcount == 0) {
             else{
                 while ($row2 = $res2->fetch_assoc()) {  ?>
                     <div class="blog_box" style="width: 100%">
-                      <h3><a href="<?php echo $row2['url']; ?>" ><?php echo $row2['title']; ?></a></h3>
+                      <h3><a href="<?php echo $row2['url']; ?>" ><?php echo $row2['title']; ?></a> <?php if (isset($_SESSION['logged_user_name']) and $_SESSION['logged_user_name'] == $_GET['user_name']){ echo "<span style='float:right;font-size:15px;padding-right:10px;'><a href='editBlog.php?blogtitle=".$row2['title']."'>edit</a></span>"; } ?> </h3>
                       <p><?php echo strip_tags($row2['body']); ?></p>
                     </div>
 

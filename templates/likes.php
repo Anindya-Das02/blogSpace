@@ -31,6 +31,16 @@ if (isset($_POST['like_button'])) {
 	}
 }
 
+if (isset($_POST["report_submit_btn"])) {
+	$pos = strpos($url,"blog.php?");
+    $substr = substr($url,$pos);
+    //echo $substr; //blog.php?blog_title=Fairy+Tail+Dragon+Cry%21&author=natsu+dragneel
+	$report_sql = "insert into report values (?,?,?,?,?,?)";
+	$repstm = $conn->prepare($report_sql);
+	$repstm->bind_param("ssssss",$title,$name,$_SESSION['logged_user_name'],$substr,$_POST['report'],$_POST['comment_reason']);
+	$repstm->execute();
+}
+
 ?>
 <style type="text/css">
 	.like_btn{
@@ -44,11 +54,31 @@ if (isset($_POST['like_button'])) {
     	font-size: 30px;
     }
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#report_toggle_btn").click(function(){
+			$("#report_bar").toggle();
+		});
+	});
+</script>
 <div style="margin-top: 10px;">
 	<hr>
 	<form method="post">
 		<button type="submit" name="like_button" class="like_btn" title="like" ><span class="<?php if($row_count == 0){ echo 'glyphicon glyphicon-heart-empty';}else{ echo 'glyphicon glyphicon-heart'; } ?>" style="height: 20px;"></span></button>		
 	</form>
-	<p style="float:right;margin-top: -40px;"><i>this article was posted on: <?php echo $row['date']; ?></i></p>
-	
+	<p style="float:right;margin-top: -40px;"> <span id="report_toggle_btn"><button class="btn btn-link" style="color: black;">report</button>
+	</span> | &nbsp <i>this article was posted on: <?php echo $row['date']; ?></i></p>	
+</div>
+<div id="report_bar" style="display:none;margin-top: 10px;">
+	<h4><u><b>Reproting this blog for:</b></u></h4>
+	<form method="POST">
+		<input type="radio" name="report" value="inappropriate content"> inappropriate content<br>
+		<input type="radio" name="report" value="hatefull content"> hatefull content<br>
+		<input type="radio" name="report" value="misleading content"> misleading content<br>
+		<input type="radio" name="report" value="spam content"> spam content<br>
+		<input type="radio" name="report" value="other reason"> other<br>
+		<textarea rows="5" cols="30" name="comment_reason" placeholder="if other please mention the reason..."></textarea><br/>
+		<input type="reset" class="btn" /> &nbsp 
+		<input type="submit" name="report_submit_btn" value="Report" class="btn btn-danger"/>
+	</form>
 </div>

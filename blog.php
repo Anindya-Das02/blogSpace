@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if($_SESSION['logged_user_name'] == null){
+    header("Location: index.php");
+}
 $suthor_name = $_SESSION['logged_user_name'];
 $name = $_GET['author'];
 $title = $_GET['blog_title'];
