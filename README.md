@@ -6,8 +6,9 @@
   <h3 style="color:red;">Features that will be added soon...</h3>
   <ul>
     <li>email support</li>
-    <li>forget password</li>
+    <li>forget password/password recovery</li>
     <li>cookies</li>    
+    <li>improved UI/UX</li>  
   </ul>
 </div>
 <div>
