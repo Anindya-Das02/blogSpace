@@ -1,5 +1,16 @@
 # blogSpace
 <div>
+  <h3>Technologies used:</h3>
+  <p>Front-end: HTML, CSS, JavaScript, Bootstrap, Jquery</p>
+  <p>Back-end: PHP, MySQL</p>
+  <h3 style="color:red;">Features that will be added soon...</h3>
+  <ul>
+    <li>email support</li>
+    <li>forget password</li>
+    <li>cookies</li>    
+  </ul>
+</div>
+<div>
 <h2>Login - SignUp page </h2>
   <p>This is the signup / login page. A user can create a new account or can directly login if his/her account already exists.
   The login and signup buttons changes color on hovering over it. User can also scroll down to see various artworks and qoutes.</p>
