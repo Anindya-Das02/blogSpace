@@ -3,12 +3,14 @@
   <h3>Technologies used:</h3>
   <p>Front-end: HTML, CSS, JavaScript, Bootstrap, Jquery</p>
   <p>Back-end: PHP, MySQL</p>
-  <h3 style="color:red;">Features that will be added soon...</h3>
+  <h3 style="color:red;">Features that will be added in next version (v1.3)</h3>
   <ul>
     <li>email support</li>
     <li>forget password/password recovery</li>
     <li>cookies</li>    
     <li>improved UI/UX</li>  
+    <li>account deactivating</li> 
+    <li>comment activating/deactivating</li> 
   </ul>
 </div>
 <div>
