@@ -12,11 +12,6 @@
     <li>account deactivating</li> 
     <li>comment activating/deactivating</li> 
   </ul>
-  ```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
 </div>
 <div>
 <h2>Login - SignUp page </h2>
@@ -77,3 +72,8 @@ puts markdown.to_html
     
   
 </div>
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
