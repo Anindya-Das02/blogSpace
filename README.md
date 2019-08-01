@@ -5,6 +5,7 @@
   <p>Back-end: PHP, MySQL</p>
   <h3 style="color:red;">Features that will be added in next version (v1.3)</h3>
   <ul>
+    <li>AJAX support</li>
     <li>email support</li>
     <li>forget password/password recovery</li>
     <li>cookies</li>    
